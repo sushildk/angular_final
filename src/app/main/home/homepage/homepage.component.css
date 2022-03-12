@@ -1,0 +1,39 @@
+.carousel .carousel-item {
+    max-height: 500px;
+}
+
+.carousel-item img {
+    object-fit: cover;
+    max-height: 500px;
+}
+
+/* 
+.product {
+    padding: 20px 0;
+}
+
+.slider-wrap {
+    position: relative;
+}
+
+.slider-main {
+    position: absolute;
+}
+
+.item {
+    display: inline;
+    height: 600px;
+    width: 600px;
+    background-color: darkred;
+}
+
+.text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+} */
+
+
+.myrow {
+    overflow: hidden;
+}
