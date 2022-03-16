@@ -39,7 +39,13 @@ url:string
    getById(id:string){
      return this.http.get(`${this.url}/${id}`,this.getOptions())
    }
-   getByCategories(){
-     return this.http.get(`${this.url}/categories`,this.getOptions())
+   getByPremium(){
+     return this.http.get(`${this.url}/categories/premium`,this.getOptions())
+   }
+   getByUrgent(){
+     return this.http.get(`${this.url}/categories/urgent`,this.getOptions())
+   }
+   getByNormal(){
+     return this.http.get(`${this.url}/categories/normal`,this.getOptions())
    }
 }

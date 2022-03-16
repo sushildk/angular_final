@@ -8,6 +8,7 @@ import { SharedModule } from './shared/shared.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttppsInterceptor } from './shared/int/httpps.interceptor';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -19,10 +20,13 @@ import { HttppsInterceptor } from './shared/int/httpps.interceptor';
     AppRoutingModule,
     SharedModule,
     ToastrModule.forRoot({
-      timeOut: 1000,
+      timeOut: 2000,
       preventDuplicates: true,
+      progressBar:true,
+   
     }),
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    Ng2SearchPipeModule,
     
   ],
   providers: [{

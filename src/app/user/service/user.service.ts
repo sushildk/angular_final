@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Rooms } from 'src/app/admin/interface/roomSearch';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -30,7 +31,7 @@ editUser(id:string,data:any){
 
 }
 getAllRoom(){
-  return this.http.get(`${this.url}/room`,this.getOptions())
+  return this.http.get<Rooms[]>(`${this.url}/room`,this.getOptions())
 }
 
 

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RoomRoutingModule } from './room-routing.module';
 import { RoomComponent } from './room/room.component';
 import { RoomformComponent } from './roomform/roomform.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditRoomComponent } from './edit-room/edit-room.component';
 import { RoomDetailComponent } from './room-detail/room-detail.component';
 
@@ -19,8 +19,8 @@ import { RoomDetailComponent } from './room-detail/room-detail.component';
   imports: [
     CommonModule,
     RoomRoutingModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class RoomModule { }

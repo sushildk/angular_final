@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
    
 
     if (this.signUpForm.valid) {
-      // if(this.user.role=="admin"){
 
         console.log(this.signUpForm.value);
         this.user =this.signUpForm.value
@@ -47,7 +46,8 @@ export class LoginComponent implements OnInit {
         this.authServ.login(this.user)
         .subscribe(
           (data: any) => {
-            console.log('dataaaa>', data);
+            if(data.user.role==="admin"){
+              console.log('dataaaa>', data);
             localStorage.setItem('role',data.user.role)
         this.authServ.saveToken(data.token);
         this.toastr.showSuccess('Login Successful');
@@ -55,6 +55,15 @@ export class LoginComponent implements OnInit {
             /* Check for role condition (data.role ma  aauxa) */
             this.signUpForm.reset();
             this.router.navigate(['admin/adminDashboard']);
+
+
+          
+            }else{
+              this.toastr.showErr('You are not allowed to access this page')
+              this.router.navigate(['/main'])
+            }
+
+            
           }),
           ( err: any) => {
             this.toastr.showErr(err);

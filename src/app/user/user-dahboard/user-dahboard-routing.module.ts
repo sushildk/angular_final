@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EdituserComponent } from './edituser/edituser.component';
 import { ProfileComponent } from './profile/profile.component';
+import { RoomDetaiComponent } from './room-detai/room-detai.component';
 import { UserDashbordComponent } from './user-dashbord/user-dashbord.component';
 
 const routes: Routes = [
@@ -16,6 +17,14 @@ const routes: Routes = [
   {
     path:'profile',
     component:ProfileComponent
+  },
+  // {
+  //   path:'cart',
+  //   component:AddtocartComponent
+  // },
+  {
+    path:'roomDetail/:id',
+    component:RoomDetaiComponent
   }
 ];
 

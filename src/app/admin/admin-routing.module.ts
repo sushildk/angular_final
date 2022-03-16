@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { GuardService } from '../shared/service/guard.service';
 import { AdminComponent } from './admin/admin.component';
-import { AdminGuard } from './guard/admin.guard';
+// import { AdminGuard } from '../admin-auth/guard/admin.guard';
 
 const routes: Routes = [{
   path:'',

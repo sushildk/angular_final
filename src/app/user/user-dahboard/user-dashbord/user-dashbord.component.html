@@ -6,13 +6,15 @@
     <div class="row mt-5">
 
         <div class="card mycard  ml-4 mr-4 mb-3"
-            style="width: 14rem;border-radius: 10%; background-color: rgb(226, 226, 226);" *ngFor="let room of rooms">
+            style=" width: 14rem;border-radius: 10%; background-color: rgb(226, 226, 226);" *ngFor="let room of rooms">
             <div class="text-center">
 
                 <img class="card-img-top image-fluid mt-2" style="height:13rem; width: 12rem; border-radius: 10px;"
-                    src="./../../../../assets/img/download (1).png" alt="Card image cap">
+                    src="./../../../../assets/img/download (1).png" alt="Card image cap"
+                    routerLink="/user/userDasboard/roomDetail/{{room._id}}">
                 <div class="card-body">
-                    <div class="col-lg-12 justify-content-inline">
+                    <div class="col-lg-12 justify-content-inline"
+                        routerLink="/user/userDasboard/roomDetail/{{room._id}}">
 
                         <p class="card-title">Adderss : {{room.address}}</p>
                         <p class="card-title"> {{room.price | currency :"NPR "}}</p>
@@ -20,8 +22,11 @@
                     </div>
                     <!-- <p class="card-text ">{{rooms[0].description}}</p> -->
                     <div style="border-radius: 10%;">
-                        <button class="btn btn-sm btn-primary mr-2">Add to Cart</button>
-                        <button class="btn btn-sm btn-info">Book</button>
+                        <button class="btn btn-sm btn-primary mr-2" style="border-radius: 10px;"
+                            (click)="addTocart(room)">Add to
+                            Cart</button>
+                        <button class="btn btn-sm btn-info" style="border-radius: 10px;"
+                            (click)="book(room._id)">Book</button>
 
                     </div>
                 </div>
@@ -31,4 +36,9 @@
 
     </div>
 
+</div>
+
+<div id="mybutton">
+    <button class="feedback " style="border-radius: 50%; width: 75px; height: 75px;" routerLink='/main/cart'><i
+            class="fa-solid fa-cart-shopping"></i></button>
 </div>

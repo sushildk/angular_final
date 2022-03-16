@@ -18,6 +18,7 @@ export class UserHeaderComponent implements OnInit {
   LogOut(){
   this.authservice.removeToken();
   this.msgService.showSuccess('logOut Successful')
-  this.router.navigate(['/auth/login'])
+  this.router.navigate(['/main'])
+  localStorage.clear()
 }
 }

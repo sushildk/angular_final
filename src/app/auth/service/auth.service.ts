@@ -39,14 +39,17 @@ saveToken(token:any){
 removeToken(){
   localStorage.removeItem('token')
 }
-checkToken(){
-  let token =localStorage.getItem('token');
-  if(token){
-    return true
-  }else{
-    return false
-  }
-}
+// checkToken(){
+//   let token =localStorage.getItem('token');
+//   if(token){
+//     return true
+//   }else{
+//     return false
+//   }
+    
+//   }
+// }
+
 
 
 

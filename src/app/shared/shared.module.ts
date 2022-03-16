@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GuardService } from './service/guard.service';
 import { SpinnerService } from './service/spinner.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({

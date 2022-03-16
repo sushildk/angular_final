@@ -6,6 +6,7 @@ import { AdminDashbordComponent } from './admin-dashbord/admin-dashbord.componen
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AdminHeaderComponent } from '../layout/admin-header/admin-header.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
   imports: [
     CommonModule,
     AdminDashbordRoutingModule,
+    FormsModule
   ],
  
 })

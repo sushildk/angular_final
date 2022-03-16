@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MsgService } from 'src/app/shared/service/msg.service';
 import { UserService } from 'src/app/user/service/user.service';
+import { Rooms } from '../../interface/roomSearch';
 import { RoomService } from '../../service/room.service';
 
 @Component({
@@ -10,8 +11,11 @@ import { RoomService } from '../../service/room.service';
   styleUrls: ['./room.component.css']
 })
 export class RoomComponent implements OnInit {
-  rooms: any;
 
+  
+  rooms: Rooms[] =[];
+  address:any
+  loading:boolean
   constructor(
     public router:Router,
     public userService:UserService,
@@ -19,12 +23,15 @@ export class RoomComponent implements OnInit {
     public msgService :MsgService
 
 
-  ) { }
+  ) { 
+    this.loading = false;
+  }
 
   ngOnInit(): void {
     this.userService.getAllRoom().subscribe(
       (data:any)=>{
-        this.rooms =data
+        this.rooms =data;
+        this.loading=true;
         console.log("dataFrom room",data)
       }
     )
@@ -37,6 +44,7 @@ export class RoomComponent implements OnInit {
         (user:any)=>{
           this.msgService.showSuccess('Deleted')
           this.rooms.splice(i,1)
+          this.loading=true
       
         },
         err=>{
@@ -48,4 +56,17 @@ export class RoomComponent implements OnInit {
   ADDroom(){
     this.router.navigate(['/admin/room/addroom'])
   }
+
+  Search(){
+    if(this.address ==""){
+      this.ngOnInit()
+    }else{
+      this.rooms =this.rooms.filter(res=>{
+        return res.address.toLocaleLowerCase().match(this.address.toLocaleLowerCase());
+      })
+    }
+
+  }
+
+
 }

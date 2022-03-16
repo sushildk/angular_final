@@ -1,33 +1,54 @@
-<div class="container-fluid  mt-5">
+<div class="container-fluid  mt-1 " *ngIf="loading">
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-5 text-center mr-5 " style="background-color:rgb(214, 214, 211); border-radius: 10px;">
 
 
 
-            <img class="img-fluid" style="width: 400px;height: 400px;"
+            <img class="img-fluid mt-3" style="width: 200px;height: 200px; border-radius: 50%;"
                 src="./../../../../assets/img/tree-736885__480.jpg" alt="">
 
-        </div>
-        <div class="col-lg-7">
-            <h3 class="content">Name: sushil dallakoti</h3>
-            <h5>Location:rapti-1</h5>
-            <h5>phoneNumber:98989898</h5>
-            <h5>Email:sushil99dk9@gmail.com</h5>
-            <h5>gender:male</h5>
-            <h5>Description</h5>
-            <p class="border border-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, delectus cum
-                accusamus
-                deserunt
-                facere sequi, eaque harum maxime amet sapiente nisi dicta ea magni. Culpa, nam exercitationem. Earum,
-                soluta autem.</p>
-            <div class="mt-5">
-                <button class="btn btn-warning btn-md mr-2"><i class="fas fa-edit"></i></button>
-                <button class="btn btn-danger btn-md"><i class="fa-solid fa-trash-can"></i></button>
-            </div>
-
+            <h3 class="content text-center m-3">{{user.firstName}} {{user.lastName}}</h3>
+            <button class="btn btn-warning btn-sm mr-2 mb-3" routerLink="/user/userDasboard/editUser/{{user._id}}"><i
+                    class="fas fa-edit"></i></button>
+            <button class="btn btn-danger btn-sm mb-3" (click)="deleteUser(user._id,user.i)"><i
+                    class="fa-solid fa-trash-can"></i></button>
 
 
 
         </div>
+
+        <div class=" col-lg-6 mt-1" style="background-color: rgb(214, 214, 211); border-radius: 10px;">
+
+
+            <table class="table" style="font-size: large;">
+
+                <tbody>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{user.Email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Location</td>
+                        <td>{{user.address}}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone Number</td>
+                        <td>{{user.phoneNumber}}</td>
+                    </tr>
+                    <tr>
+                        <td>gender</td>
+                        <td>{{user.gender}}</td>
+                    </tr>
+                    <tr>
+                        <td>role</td>
+                        <td>{{user.role}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
     </div>
 </div>

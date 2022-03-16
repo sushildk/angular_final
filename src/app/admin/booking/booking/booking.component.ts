@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MsgService } from 'src/app/shared/service/msg.service';
+import { BookingService } from 'src/app/user/service/booking.service';
 
 @Component({
   selector: 'app-booking',
@@ -6,10 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./booking.component.css']
 })
 export class BookingComponent implements OnInit {
+  bookedRoom: any;
 
-  constructor() { }
+  constructor(
+    public bookingService:BookingService,
+    public msgService:MsgService 
+    ) { }
 
   ngOnInit(): void {
+    this.bookingService.getAllBooking().subscribe(
+      (data:any)=>{
+        this.bookedRoom =data
+        console.log("all book detail",this.bookedRoom)
+
+      },
+      err=>{
+        console.log('errr from booking',err)
+      }
+      
+    )
+
   }
+
 
 }

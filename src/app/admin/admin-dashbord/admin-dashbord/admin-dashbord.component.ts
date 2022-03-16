@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/auth/model/usermodel';
 import { GuardService } from 'src/app/shared/service/guard.service';
 import { MsgService } from 'src/app/shared/service/msg.service';
 import { AdminService } from '../../service/admin.service';
@@ -10,7 +11,9 @@ import { AdminService } from '../../service/admin.service';
   styleUrls: ['./admin-dashbord.component.css']
 })
 export class AdminDashbordComponent implements OnInit {
-  users: any;
+  users: User[] =[];
+  firstName:any
+  p :number =1;
 
   constructor(public adminserv:AdminService,
     public msgService:MsgService) { }
@@ -41,6 +44,15 @@ if(confirmRemove){
   )
 }
 
+}
+Search(){
+  if(this.firstName ==""){
+    this.ngOnInit()
+  }else{
+    this.users =this.users.filter(res=>{
+      return res.firstName.toLocaleLowerCase().match(this.firstName.toLocaleLowerCase());
+    });
+  }
 }
 
 }

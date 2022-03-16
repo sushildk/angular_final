@@ -11,22 +11,22 @@
         <div class="carousel-item active">
             <img src="../../../../assets/img/room4.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
+                <h5>Get A Best Room For Living</h5>
+                <p>Enjoy every movement of you life !!! </p>
             </div>
         </div>
         <div class="carousel-item">
             <img src="../../../../assets/img/room3.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
+                <h5>Get A Best Room For Living</h5>
+                <p>Enjoy every movement of you life !!! </p>
             </div>
         </div>
         <div class="carousel-item">
             <img src="../../../../assets/img/room1.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
+                <h5>Get A Best Room For Living</h5>
+                <p>Enjoy every movement of you life !!! </p>
             </div>
         </div>
     </div>
@@ -34,23 +34,31 @@
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+
+    <div id="mybutton">
+        <button class="feedback " style="border-radius: 50%; width: 75px; height: 75px;" routerLink='/main/cart'><i
+                class="fa-solid fa-cart-shopping"></i></button>
+    </div>
+    <!-- <button class="carousel-control" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
-    </button>
+    </button> -->
 </div>
 
 
 <!-- carousel -->
+
+
 <!-- carousel -->
 
 <div class="container-fluid mt-5 mb-5 " style="border: 2px solid gray; border-radius: 20px;">
 
-    <div>
-        <h2 class="text-center m-2">Normal Rooms</h2>
+    <div *ngIf="premiumLoading">
+        <h2 class="text-center m-2 p-2" style="background-color: rgb(226, 226, 226); border-radius: 10px;"><span
+                style="color:gold;" class="fw-bold">Premium</span> Rooms</h2>
         <hr class="bg-black " style="height: 3px;">
         <div class="row mt-3  myrow">
-            <div class="card mycard ml-2 mr-2 mb-3"
+            <div class="card mycard ml-2 mr-2 mb-3" *ngFor="let pre of premium"
                 style="width: 14rem;border-radius: 10%; background-color: rgb(226, 226, 226);">
                 <!-- *ngFor="let room of normal" -->
                 <div class="text-center">
@@ -60,21 +68,40 @@
                     <div class="card-body">
                         <div class="col-lg-12 justify-content-inline">
 
-                            <p class="card-title">Adderss : tikathali</p>
-                            <p class="card-title"> $40</p>
+                            <p class="card-title">Adderss : {{pre.address}}</p>
+                            <p class="card-title"> {{pre.price}}</p>
 
                         </div>
                         <!-- <p class="card-text ">{{rooms[0].description}}</p> -->
-                        <div style="border-radius: 10%;">
-                            <button class="btn btn-sm btn-primary mr-2">Add to Cart</button>
-                            <button class="btn btn-sm btn-info">Book</button>
+                        <div>
+                            <button class="btn btn-sm btn-primary mr-2" style="border-radius: 10px;"
+                                (click)="addTocart(pre)">Add to
+                                Cart</button>
+                            <button class="btn btn-sm btn-info" style="border-radius: 10px;"
+                                (click)="booking()">Book</button>
 
                         </div>
                     </div>
                 </div>
             </div>
             <!-- ******************** -->
-            <div class="card mycard ml-4 mr-4 mb-3"
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container-fluid mt-5 mb-5 " *ngIf="urgentLoading" style="border: 2px solid gray; border-radius: 20px;">
+
+    <div>
+        <h2 class="text-center m-2 p-2" style="background-color:rgb(226, 226, 226) ; border-radius: 10px;"><span
+                class="text-danger fw-bold">
+                Urgent</span> Rooms</h2>
+        <hr class="bg-black " style="height: 3px;">
+        <div class="row mt-3  myrow">
+            <div class="card mycard ml-2 mr-2 mb-3" *ngFor="let ur of urgent"
                 style="width: 14rem;border-radius: 10%; background-color: rgb(226, 226, 226);">
                 <!-- *ngFor="let room of normal" -->
                 <div class="text-center">
@@ -84,21 +111,39 @@
                     <div class="card-body">
                         <div class="col-lg-12 justify-content-inline">
 
-                            <p class="card-title">Adderss : tikathali</p>
-                            <p class="card-title"> $40</p>
+                            <p class="card-title">Adderss : {{ur.address}}</p>
+                            <p class="card-title"> {{ur.price}}</p>
 
                         </div>
                         <!-- <p class="card-text ">{{rooms[0].description}}</p> -->
                         <div style="border-radius: 10%;">
-                            <button class="btn btn-sm btn-primary mr-2">Add to Cart</button>
-                            <button class="btn btn-sm btn-info">Book</button>
+                            <button class="btn btn-sm btn-primary mr-2" style="border-radius: 10px;"
+                                (click)="addTocart(ur)">Add to
+                                Cart</button>
+                            <button class="btn btn-sm btn-info" style="border-radius: 10px;"
+                                (click)="booking()">Book</button>
 
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- *************************** -->
-            <div class="card mycard ml-4 mr-4 mb-3"
+            <!-- ******************** -->
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container-fluid mt-5 mb-5  " *ngIf="normalLoading" style="border: 2px solid gray; border-radius: 20px;">
+
+    <div>
+        <h2 class="text-center m-2 p-2" style="background-color: rgb(226, 226, 226); border-radius: 10px;"><span
+                style="color: blue;" class="fw-bold">Normal</span> Rooms</h2>
+        <hr class="bg-black " style="height: 3px;">
+        <div class="row mt-3  myrow">
+            <div class="card mycard ml-2 mr-2 mb-3" *ngFor="let nom of normal"
                 style="width: 14rem;border-radius: 10%; background-color: rgb(226, 226, 226);">
                 <!-- *ngFor="let room of normal" -->
                 <div class="text-center">
@@ -108,90 +153,24 @@
                     <div class="card-body">
                         <div class="col-lg-12 justify-content-inline">
 
-                            <p class="card-title">Adderss : tikathali</p>
-                            <p class="card-title"> $40</p>
+                            <p class="card-title">Adderss : {{nom.address}}</p>
+                            <p class="card-title"> {{nom.price}}</p>
 
                         </div>
                         <!-- <p class="card-text ">{{rooms[0].description}}</p> -->
                         <div style="border-radius: 10%;">
-                            <button class="btn btn-sm btn-primary mr-2">Add to Cart</button>
-                            <button class="btn btn-sm btn-info">Book</button>
+                            <button class="btn btn-sm btn-primary mr-2" style="border-radius: 10px;"
+                                (click)="addTocart(nom)">Add to
+                                Cart</button>
+                            <button class="btn btn-sm btn-info" style="border-radius: 10px;"
+                                (click)="booking()">Book</button>
 
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- ****************************** -->
-            <div class="card mycard ml-4 mr-4 mb-3"
-                style="width: 14rem;border-radius: 10%; background-color: rgb(226, 226, 226);">
-                <!-- *ngFor="let room of normal" -->
-                <div class="text-center">
+            <!-- ******************** -->
 
-                    <img class="card-img-top image-fluid mt-2" style="height:13rem; width: 12rem; border-radius: 10px;"
-                        src="./../../../../assets/img/download (1).png" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="col-lg-12 justify-content-inline">
-
-                            <p class="card-title">Adderss : tikathali</p>
-                            <p class="card-title"> $40</p>
-
-                        </div>
-                        <!-- <p class="card-text ">{{rooms[0].description}}</p> -->
-                        <div style="border-radius: 10%;">
-                            <button class="btn btn-sm btn-primary mr-2">Add to Cart</button>
-                            <button class="btn btn-sm btn-info">Book</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- ******************************** -->
-            <div class="card mycard ml-4 mr-4 mb-3"
-                style="width: 14rem;border-radius: 10%; background-color: rgb(226, 226, 226);">
-                <!-- *ngFor="let room of normal" -->
-                <div class="text-center">
-
-                    <img class="card-img-top image-fluid mt-2" style="height:13rem; width: 12rem; border-radius: 10px;"
-                        src="./../../../../assets/img/download (1).png" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="col-lg-12 justify-content-inline">
-
-                            <p class="card-title">Adderss : tikathali</p>
-                            <p class="card-title"> $40</p>
-
-                        </div>
-                        <!-- <p class="card-text ">{{rooms[0].description}}</p> -->
-                        <div style="border-radius: 10%;">
-                            <button class="btn btn-sm btn-primary mr-2">Add to Cart</button>
-                            <button class="btn btn-sm btn-info">Book</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mycard ml-4 mr-4 mb-3"
-                style="width: 14rem;border-radius: 10%; background-color: rgb(226, 226, 226);">
-                <!-- *ngFor="let room of normal" -->
-                <div class="text-center">
-
-                    <img class="card-img-top image-fluid mt-2" style="height:13rem; width: 12rem; border-radius: 10px;"
-                        src="./../../../../assets/img/download (1).png" alt="Card image cap">
-                    <div class="card-body">
-                        <div class="col-lg-12 justify-content-inline">
-
-                            <p class="card-title">Adderss : tikathali</p>
-                            <p class="card-title"> $40</p>
-
-                        </div>
-                        <!-- <p class="card-text ">{{rooms[0].description}}</p> -->
-                        <div style="border-radius: 10%;">
-                            <button class="btn btn-sm btn-primary mr-2">Add to Cart</button>
-                            <button class="btn btn-sm btn-info">Book</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
 
         </div>
 

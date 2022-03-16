@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { User } from 'src/app/auth/model/usermodel';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -26,12 +27,15 @@ getOptions(){
 
 
 getAllUser(){
-  return this.http.get(`${this.url}`,this.getOptions())
+  return this.http.get<User[]>(`${this.url}`,this.getOptions())
 
 }
 removeUser(id:string){
   return this.http.delete(`${this.url}/${id}`,this.getOptions())
 }
+
+
+
 
 
 

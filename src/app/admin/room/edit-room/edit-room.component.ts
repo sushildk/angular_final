@@ -22,7 +22,13 @@ export class EditRoomComponent implements OnInit {
     public activatedRoue:ActivatedRoute
     
 
-  ) { }
+  ) { 
+    this.rooms = {
+     
+
+    }
+
+  }
 
   ngOnInit(): void {
     const roomId = this.activatedRoue.snapshot.params["id"]
@@ -40,12 +46,12 @@ export class EditRoomComponent implements OnInit {
 
   }
 addRoomform = new FormGroup({
-  address : new FormControl(''),
-  // numberOfRoom : new FormControl(''),
-  // price : new FormControl(''),
-  // description : new FormControl(''),
-  // phoneNumber : new FormControl('',[Validators.minLength(10)]),
-  // categories : new FormControl(''),
+  address : new FormControl(null),
+  numberOfRoom : new FormControl(null),
+  price : new FormControl(null),
+  description : new FormControl(null),
+  phoneNumber : new FormControl(null,[Validators.minLength(10)]),
+  categories : new FormControl(null),
 
 
 
@@ -54,9 +60,8 @@ get addRoomFormControl(){
   return this.addRoomform.controls;
 
 }
-onedit(){
-  console.log(this.addRoomform.value)
-  this.roomservice.editRoom(this.rooms.id,this.addRoomform.value).subscribe(
+onroomedit(){
+  this.roomservice.editRoom(this.rooms._id,this.addRoomform.value).subscribe(
     (data:any)=>{
       this.msgService.showSuccess('updated')
       this.router.navigate(['/admin/room'])

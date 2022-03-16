@@ -9,7 +9,7 @@ const routes: Routes = [
     component:AdminDashbordComponent
   },
   {
-    path:"userDetail",
+    path:"userDetail/:id",
     component:UserDetailsComponent
   }
 ];

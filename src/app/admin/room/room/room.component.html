@@ -1,10 +1,11 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light" style="background-color:rgb(226, 226, 226) ;">
     <h1 class="navbar-brand" href="#">Rooms List</h1>
 
 
     <form class="form-inline">
-        <input class="form-control " type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-dark  " type="submit"><i class="fa fa-search"></i> </button>
+        <input class="form-control " type="search" placeholder="Search..." aria-label="Search" name="address"
+            [(ngModel)]="address" (ngModelChange)="Search()" style="border-radius: 10px;">
+
     </form>
 
 
@@ -14,7 +15,7 @@
 
 
 
-<div class="container-fluid pl-5 ">
+<div class="container-fluid pl-5 " *ngIf="loading">
 
     <div class="row mt-5 pl-5">
 

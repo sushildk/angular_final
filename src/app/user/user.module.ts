@@ -7,6 +7,7 @@ import { UserFooterComponent } from './layout/user-footer/user-footer.component'
 import { UserComponent } from './user/user.component';
 import { SharedModule } from '../shared/shared.module';
 import { UserService } from './service/user.service';
+import { BookingService } from './service/booking.service';
 
 
 @NgModule({
@@ -17,6 +18,6 @@ import { UserService } from './service/user.service';
     SharedModule
 
   ],
-  providers:[UserService]
+  providers:[UserService,BookingService]
 })
 export class UserModule { }

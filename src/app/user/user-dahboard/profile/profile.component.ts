@@ -28,14 +28,14 @@ export class ProfileComponent implements OnInit {
       (data:any)=>{
         this.user= data
         console.log('userProfie',data)
-      },
-      err=>{
+      }
+      ),
+      (err:any)=>{
         this.msgService.showErr(err)
         console.log('dataaaaerrrrrr',err)
 
 
       }
-    )
 
   }
   // onEdit(){
