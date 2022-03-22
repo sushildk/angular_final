@@ -54,7 +54,7 @@ export class EditRoomComponent implements OnInit {
     this.roomservice.getById(roomId).subscribe(
       (data: any) => {
         this.rooms = data;
-        console.log('roomdata from ', this.rooms);
+        // console.log('roomdata from ', this.rooms);
         this.loading = true;
       },
       (err) => {
@@ -92,31 +92,46 @@ export class EditRoomComponent implements OnInit {
   // }
   onroomedit() {
     if (this.addRoomform.valid) {
-      console.log('this is from room form', this.addRoomform.value);
+      // console.log('this is from room form', this.addRoomform.value);
       // this.rooms = this.addRoomform.value;
       this.rooms = this.checkFormData(this.addRoomform.value, this.rooms);
-
-      this.roomservice
-        .upload(this.rooms, this.fileToUpload, 'PUT', this.url)
-        .subscribe(
+      console.log('this.rooms::::', this.rooms);
+      console.log('file to upoad', this.fileToUpload);
+      if (this.fileToUpload.length === 0) {
+        this.roomservice.editRoom(this.rooms._id, this.rooms).subscribe(
           (data: any) => {
-            // this.addRoomform.reset();
+            console.log('aayena:', data);
             this.router.navigate(['/admin/room']);
-            console.log('data on register', data);
           },
           (err) => {
             console.log('error from form', err);
             this.msgService.showErr(err.error.message);
           }
         );
+      }
+      if (this.fileToUpload.length !== 0) {
+        this.roomservice
+          .upload(this.rooms, this.fileToUpload, 'PUT', this.url)
+          .subscribe(
+            (data: any) => {
+              // this.addRoomform.reset();
+              this.router.navigate(['/admin/room']);
+              console.log('data on upload', data);
+            },
+            (err) => {
+              console.log('error from form', err);
+              this.msgService.showErr(err.error.message);
+            }
+          );
 
-      this.msgService.showSuccess('Room Added');
+        this.msgService.showSuccess('Room Added');
+      }
     }
   }
 
   fileUpload(event: any) {
     this.fileToUpload = event.target.files;
-    console.log('eventttt', event.target.files);
+    // console.log('eventttt', event.target.files);
   }
   checkFormData(form: any, room: Rooms) {
     if (form.address) room.address = form.address;
