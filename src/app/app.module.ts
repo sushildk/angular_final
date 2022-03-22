@@ -9,6 +9,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttppsInterceptor } from './shared/int/httpps.interceptor';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     }),
     NgxSpinnerModule,
     Ng2SearchPipeModule,
+    NgxPaginationModule
     
   ],
   providers: [{

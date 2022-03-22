@@ -49,8 +49,15 @@ Search(){
   if(this.firstName ==""){
     this.ngOnInit()
   }else{
-    this.users =this.users.filter(res=>{
-      return res.firstName.toLocaleLowerCase().match(this.firstName.toLocaleLowerCase());
+    this.users = this.users.filter(res=>{
+      
+     return  res.firstName.toLocaleLowerCase().match(this.firstName.toLocaleLowerCase());
+      //  res.lastName.toLocaleLowerCase().match(this.firstName.toLocaleLowerCase());
+      //  res.phoneNumber.toLocaleLowerCase().match(this.firstName.toLocaleLowerCase());
+      //  res.Email.toLocaleLowerCase().match(this.firstName.toLocaleLowerCase());
+
+
+
     });
   }
 }

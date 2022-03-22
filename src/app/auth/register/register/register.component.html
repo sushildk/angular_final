@@ -2,7 +2,11 @@
     <div class="row">
         <div class="col-md-2 col-sm-12 "></div>
         <div class="col-md-8 col-sm-12  shadow bg-white rounded" style=" padding: 10px">
-            <h2>Sign Up</h2>
+            <div class="inline">
+
+                <a href="" class="float-right" routerLink="/auth/login">Already Have Account</a>
+                <h2>Sign Up</h2>
+            </div>
             <hr />
 
             <form [formGroup]="signUpForm" (ngSubmit)="onRegister()">

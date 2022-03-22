@@ -9,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminService } from './service/admin.service';
 import { RoomService } from './service/room.service';
+import { AdminGuard } from './guard/admin.guard';
 
 
 @NgModule({
@@ -18,6 +19,6 @@ import { RoomService } from './service/room.service';
     AdminRoutingModule,
     SharedModule,
   ],
-  providers:[AdminService,RoomService]
+  providers:[AdminService,RoomService,AdminGuard]
 })
 export class AdminModule { }

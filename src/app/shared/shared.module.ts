@@ -7,7 +7,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GuardService } from './service/guard.service';
 import { SpinnerService } from './service/spinner.service';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+// import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -17,6 +18,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CarouselModule
+    // NgxPaginationModule
+    
 
    
   ],
@@ -25,6 +29,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CarouselModule
+    // NgxPaginationModule
     
   ],
   providers:[MsgService,GuardService,SpinnerService]

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MsgService } from 'src/app/shared/service/msg.service';
 import { UserService } from 'src/app/user/service/user.service';
+import { environment } from 'src/environments/environment';
 import { Rooms } from '../../interface/roomSearch';
 import { RoomService } from '../../service/room.service';
 
@@ -16,6 +17,7 @@ export class RoomComponent implements OnInit {
   rooms: Rooms[] =[];
   address:any
   loading:boolean
+  imageUrl:string
   constructor(
     public router:Router,
     public userService:UserService,
@@ -25,6 +27,7 @@ export class RoomComponent implements OnInit {
 
   ) { 
     this.loading = false;
+    this.imageUrl= environment.imageUrl
   }
 
   ngOnInit(): void {
@@ -67,6 +70,8 @@ export class RoomComponent implements OnInit {
     }
 
   }
+
+
 
 
 }

@@ -7,6 +7,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AdminHeaderComponent } from '../layout/admin-header/admin-header.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AdminDashbordRoutingModule,
-    FormsModule
+    FormsModule,
+    // NgxPaginationModule
   ],
  
 })

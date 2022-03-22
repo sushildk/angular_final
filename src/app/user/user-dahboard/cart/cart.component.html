@@ -14,13 +14,13 @@
             <td style="width:600px;">
                 <!--   <h1>admin {{rooms[0].address}}</h1> -->
 
-                <p class="text-center mt-4">{{room.description}}</p>
+                <p class="float-left mt-4">{{room.description}}</p>
             </td>
             <td>
-                <p class="mt-4 text-center">{{room.address}}</p>
+                <p class="mt-4">{{room.price}}</p>
             </td>
             <td>
-                <p class="mt-4 text-center">{{room.price}}</p>
+                <p class="mt-4">{{room.address}}</p>
             </td>
             <td><button type="button" class="btn-close mt-4" aria-label="Close"
                     (click)="removeCartRoom(room._id)"></button>

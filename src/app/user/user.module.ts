@@ -8,6 +8,7 @@ import { UserComponent } from './user/user.component';
 import { SharedModule } from '../shared/shared.module';
 import { UserService } from './service/user.service';
 import { BookingService } from './service/booking.service';
+import { UserGuard } from './guard/user.guard';
 
 
 @NgModule({
@@ -18,6 +19,6 @@ import { BookingService } from './service/booking.service';
     SharedModule
 
   ],
-  providers:[UserService,BookingService]
+  providers:[UserService,BookingService,UserGuard]
 })
 export class UserModule { }

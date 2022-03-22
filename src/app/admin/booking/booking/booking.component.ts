@@ -29,6 +29,16 @@ export class BookingComponent implements OnInit {
     )
 
   }
+  deleteReq(id:string){
+    this.bookingService.deleteBook().subscribe(
+      (data)=>{
+        console.log('deleted',data)
+      },
+      err=>{
+        this.msgService.showErr(err.error.message)
+      }
+    )
 
+  }
 
 }

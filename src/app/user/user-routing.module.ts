@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { UserGuard } from './guard/user.guard';
+import { UserGuard } from './guard/user.guard';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   {
     path:'',
     component:UserComponent,
-    // canActivate:[UserGuard],
+    canActivate:[UserGuard],
     children:[
       {
         path:'userDasboard',

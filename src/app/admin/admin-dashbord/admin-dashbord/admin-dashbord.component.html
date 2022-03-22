@@ -33,8 +33,9 @@
 
                     </tr>
                 </thead>
+                <!-- | paginate:{ itemsPerPage: 10, currentPage: p };  -->
                 <tbody>
-                    <tr *ngFor="let user of users ; let i = index"
+                    <tr *ngFor="let user of users ;let i = index   "
                         routerLink="/admin/adminDashboard/userDetail/{{user._id}}">
                         <td>{{i+1}}</td>
                         <td>{{user.firstName}} {{user.lastName}}</td>
@@ -55,7 +56,7 @@
                     </tr>
 
                 </tbody>
-                <!-- <paginations-controls ></paginations-controls> -->
+                <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
 
             </table>
         </div>

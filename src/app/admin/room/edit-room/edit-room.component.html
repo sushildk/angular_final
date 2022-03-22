@@ -47,7 +47,10 @@
                     </div>
 
                 </div>
-
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Insert an Image</label>
+                    <input class="form-control" type="file" id="formFile" (change)="fileUpload($event)">
+                </div>
 
                 <div class="form-group">
                     <label for="description" class="form-label">Description</label>

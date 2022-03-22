@@ -10,7 +10,8 @@ import { MsgService } from 'src/app/shared/service/msg.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-rooms:any
+
+  rooms:any
   cartRoom: any;
   loading:boolean
   constructor(public roomService:RoomService,
@@ -93,6 +94,4 @@ removeCartRoom(roomId:string){
 localStorage.setItem('cart',saveCart)
 }
 
-
 }
-

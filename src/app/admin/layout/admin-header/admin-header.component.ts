@@ -16,6 +16,6 @@ export class AdminHeaderComponent implements OnInit {
   }
   LogOut(){
     this.guardService.removeToken();
-    this.router.navigate(['/admin/login'])
+    this.router.navigate(['/adminauth/login'])
   }
 }

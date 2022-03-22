@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 import { RoomService } from 'src/app/admin/service/room.service';
 import { MsgService } from 'src/app/shared/service/msg.service';
 import { UserService } from 'src/app/user/service/user.service';
@@ -17,8 +18,8 @@ export class HomepageComponent implements OnInit {
   normalLoading:boolean;
   urgentLoading:boolean;
   premiumLoading:boolean;
-cart :any;
-cartRoom:any
+  cart :any;
+  cartRoom:any
 
   constructor(
     public roomService:RoomService,
@@ -130,6 +131,36 @@ cartRoom:any
     this.msgService.showInfo('You Have TO Register! ')
   }
 
-
-
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      },
+      1080: {
+        items: 5
+      }
+    },
+    nav: true
+  }
 }
+
+
+
+
+

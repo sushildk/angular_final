@@ -7,10 +7,12 @@ import { EdituserComponent } from './edituser/edituser.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile/profile.component';
 import { RoomDetaiComponent } from './room-detai/room-detai.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
-  declarations: [UserDashbordComponent, EdituserComponent, ProfileComponent, RoomDetaiComponent],
+  declarations: [UserDashbordComponent, EdituserComponent, ProfileComponent, RoomDetaiComponent, CheckoutComponent, CartComponent],
   imports: [
     CommonModule,
     UserDahboardRoutingModule,
