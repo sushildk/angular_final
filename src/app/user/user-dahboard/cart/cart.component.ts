@@ -22,10 +22,12 @@ export class CartComponent implements OnInit {
   ) {
     this.rooms = [];
     this.loading = false;
-    if (Number(localStorage.getItem('cartNumber')) !== 0) {
-      this.cartNumber = Number(localStorage.getItem('cartNumber')!);
-    }
-    console.log('cartNumber in constructor:', this.cartNumber);
+
+    this.cartNumber = Number(localStorage.getItem('cartNumber')!);
+    console.log(
+      'cart number in constructorrrrrrrrrrrrrrr::::::::::::;',
+      this.cartNumber
+    );
   }
 
   ngOnInit(): void {
@@ -99,10 +101,10 @@ export class CartComponent implements OnInit {
     if (this.cartNumber === 0) {
       localStorage.setItem('cartNumber', '0');
     } else {
+      this.cartNumber = this.cartNumber - 1;
+      console.log('cartNumber::::::', this.cartNumber);
+      localStorage.setItem('cartNumber', String(this.cartNumber));
     }
-    this.cartNumber = this.cartNumber - 1;
-    console.log('cartNumber::::::', this.cartNumber);
-    localStorage.setItem('cartNumber', String(this.cartNumber));
     localStorage.setItem('cart', saveCart);
   }
 }
